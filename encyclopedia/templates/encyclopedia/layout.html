@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="row">
+        <div class="sidebar col-lg-2 col-md-3">
+            <h2>Wiki</h2>
+            <div class="card my-4">
+                <h5 class="card-header">Search</h5>
+                    <div class="card-body">
+                        <form action="{% url 'search' %}" class="input-group">
+                            <input class="search" name="q" type="text" placeholder="Type keyword">
+                            <hr />
+                            <button class="btn btn-info btn-sm" type="submit">Click here</button>
+                        </form>
+                    </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <a class="list-group-item" href="{% url 'index' %}">Home</a>
+                <a class="list-group-item" href="{% url 'new' %}">Create New Wiki</a>
+                <a class="list-group-item" href="{% url 'random' %}">Random Wiki</a>
+            </ul>
+
+            {% block nav %}
+            {% endblock %}
+        </div>
+        <div class="main col-lg-8 col-md-9">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+
+</body>
+
+</html>

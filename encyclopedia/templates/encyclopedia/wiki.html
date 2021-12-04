@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ title }} | Encyclopedia
+{% endblock %}
+
+{% block body %}
+{{ content|safe }}
+
+<a href="{% url 'edit' title %}" class="btn btn-info ml-2" role="button">Edit this wiki</a>
+
+{% endblock %}

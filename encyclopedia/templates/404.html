@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Not Found | Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+<h1 class="display-2" font color="blue">Page not found</h1>
+<h3>The URL is inaccessible or the page has been deleted.</h3>
+<p><a href="{% url 'index' %}">Back to Home</a></p>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+New
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+
+{% for message in messages %}
+<div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %} role="alert">{{ message }}</div>
+{% endfor %}
+
+{% endif %}
+
+<form action="{% url 'new' %}" method="POST">{% csrf_token %}
+    <div class="form-group">
+        {{ form }}
+        <button class="btn btn-info" type="submit">Create new wiki</button>
+    </div>
+</form>
+{% endblock %}
